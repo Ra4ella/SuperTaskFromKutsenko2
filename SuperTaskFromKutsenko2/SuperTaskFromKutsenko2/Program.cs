@@ -16,17 +16,17 @@ namespace SuperTaskFromKutsenko2
         public class Library
         {
             [XmlElement("Book")]
-            public List<Book> books { get; set; } = new List<Book>
+            public List<Book> books { get; set; } = new List<Book> //Лист для книг
             {
                 new Book { Title = "1984", Author = "George Orwell", Genre = "Dystopian", Year = 1949, Id = 1 },
                 new Book { Title = "To Kill a Mockingbird", Author = "Harper Lee", Genre = "Fiction", Year = 1960, Id = 2 },
                 new Book { Title = "Pride and Prejudice", Author = "Jane Austen", Genre = "Romance", Year = 1813, Id = 3 }
             };
             [XmlElement("User")]
-            public List<User> users { get; set; } = new List<User> { };
-            public string fileName = "log.txt";
+            public List<User> users { get; set; } = new List<User> { }; //Лист для пользователей
+            public string fileName = "log.txt"; // Имя файла для логирования действий
 
-            public void SaveData()
+            public void SaveData() // Функция для сериализации данных в Xml файл
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Library));
                 using (StreamWriter write = new StreamWriter("file.xml"))
@@ -35,22 +35,22 @@ namespace SuperTaskFromKutsenko2
                 }
             }
 
-            public void AddBook(Book book)
+            public void AddBook(Book book) // Функция для добавления книг
             {
-                if (books.Any(b => b.Id == book.Id))
+                if (books.Any(b => b.Id == book.Id)) 
                 {
                     Console.WriteLine("Book with that id is already");
                     return;
                 }
                 books.Add(book);
                 Console.WriteLine("Book added");
-                using (StreamWriter write = new StreamWriter(fileName, true))
+                using (StreamWriter write = new StreamWriter(fileName, true)) // Запись действий в текстовый документ
                 {
                     write.WriteLine("Book added");
                     write.WriteLine($"Id: {book.Id}");
                 }
             }
-            public void RemoveBook(int id)
+            public void RemoveBook(int id) // Функция для удаления книг
             {
                 var book = books.FirstOrDefault(b => b.Id == id);
                 if (book == null)
@@ -60,13 +60,13 @@ namespace SuperTaskFromKutsenko2
                 }
                 books.Remove(book);
                 Console.WriteLine("Book removed");
-                using (StreamWriter write = new StreamWriter(fileName, true))
+                using (StreamWriter write = new StreamWriter(fileName, true)) // Запись действий в текстовый документ
                 {
                     write.WriteLine("Book removed");
                     write.WriteLine($"Id: {book.Id}");
                 }
             }
-            public void EditBook(int id, string title, string author, string genre, int year)
+            public void EditBook(int id, string title, string author, string genre, int year) // Функция для изменения книг
             {
                 Book book = books.FirstOrDefault(b => b.Id == id);
                 if (book == null)
@@ -79,13 +79,13 @@ namespace SuperTaskFromKutsenko2
                 book.Genre = genre;
                 book.Year = year;
                 Console.WriteLine("Book edited");
-                using (StreamWriter write = new StreamWriter(fileName, true))
+                using (StreamWriter write = new StreamWriter(fileName, true)) // Запись действий в текстовый документ
                 {
                     write.WriteLine("Book edited");
                     write.WriteLine($"Id: {book.Id}");
                 }
             }
-            public void ShowBooks()
+            public void ShowBooks() // Функция для вывода всех книг в библиотеке
             {
                 foreach (var book in books)
                 {
@@ -98,7 +98,7 @@ namespace SuperTaskFromKutsenko2
                     Console.WriteLine();
                 }
             }
-            public void ShowBooksFromTitle(string title)
+            public void ShowBooksFromTitle(string title) // Функция для вывода книг по названию
             {
                 Book book = books.FirstOrDefault(t => t.Title == title);
                 if (book == null)
@@ -114,7 +114,7 @@ namespace SuperTaskFromKutsenko2
                 Console.WriteLine($"Id: {book.Id}");
                 Console.WriteLine();
             }
-            public void ShowBooksFromAuthor(string author)
+            public void ShowBooksFromAuthor(string author) // Функция для вывода книг по автору
             {
                 Book book = books.FirstOrDefault(a => a.Author == author);
                 if (book == null)
@@ -131,7 +131,7 @@ namespace SuperTaskFromKutsenko2
                 Console.WriteLine();
             }
 
-            public void Register(User user)
+            public void Register(User user) // Функция для добавления пользователя
             {
                 if (users.Any(u => u.Id == user.Id))
                 {
@@ -140,14 +140,14 @@ namespace SuperTaskFromKutsenko2
                 }
                 users.Add(user);
                 Console.WriteLine("User registered");
-                using (StreamWriter write = new StreamWriter(fileName, true))
+                using (StreamWriter write = new StreamWriter(fileName, true)) // Запись действий в текстовый документ
                 {
                     write.WriteLine("User registered");
                     write.WriteLine($"Id: {user.Id}");
                 }
             }
 
-            public void RemoveUser(int id)
+            public void RemoveUser(int id) // Функция для удаления пользователя
             {
                 User user = users.FirstOrDefault(u => u.Id == id);
                 if (user == null)
@@ -157,14 +157,14 @@ namespace SuperTaskFromKutsenko2
                 }
                 users.Remove(user);
                 Console.WriteLine("User removed");
-                using (StreamWriter write = new StreamWriter(fileName, true))
+                using (StreamWriter write = new StreamWriter(fileName, true)) // Запись действий в текстовый документ
                 {
                     write.WriteLine("User removed");
                     write.WriteLine($"Id: {user.Id}");
                 }
             }
 
-            public void ShowUser()
+            public void ShowUser() // Функция для вывода всех пользователей
             {
                 foreach (var user in users)
                 {
@@ -174,7 +174,7 @@ namespace SuperTaskFromKutsenko2
                     Console.WriteLine();
                 }
             }
-            public void RentBook(int idBook, int idUser)
+            public void RentBook(int idBook, int idUser) // Функция для взятия книги в аренду
             {
                 Book book = books.FirstOrDefault(b => b.Id == idBook);
                 User user = users.FirstOrDefault(u => u.Id == idUser);
@@ -196,14 +196,14 @@ namespace SuperTaskFromKutsenko2
                 book.Status = "Taken";
                 user.Books.Add(book);
                 Console.WriteLine("Book taken");
-                using (StreamWriter write = new StreamWriter(fileName, true))
+                using (StreamWriter write = new StreamWriter(fileName, true)) // Запись действий в текстовый документ
                 {
                     write.WriteLine("Book taken");
                     write.WriteLine($"Id: {book.Id}");
                 }
             }
 
-            public void GiveBook(int idBook, int idUser)
+            public void GiveBook(int idBook, int idUser) // Функция для возврата книги
             {
                 User user = users.FirstOrDefault(u => u.Id == idUser);
                 Book book = user.Books.FirstOrDefault(b => b.Id == idBook);
@@ -220,14 +220,14 @@ namespace SuperTaskFromKutsenko2
                 book.Status = "Free";
                 user.Books.Remove(book);
                 Console.WriteLine("Book given");
-                using (StreamWriter write = new StreamWriter(fileName, true))
+                using (StreamWriter write = new StreamWriter(fileName, true)) // Запись действий в текстовый документ
                 {
                     write.WriteLine("Book given");
                     write.WriteLine($"Id: {book.Id}");
                 }
             }
 
-            public void ShowRentBook(int idUser)
+            public void ShowRentBook(int idUser) // Функция для вывода всех книг в аренду у пользователя
             {
                 User user = users.FirstOrDefault(u => u.Id == idUser);
                 if (user.Books.Count == 0)
@@ -248,7 +248,7 @@ namespace SuperTaskFromKutsenko2
             }
 
         }
-        public class Book
+        public class Book // Клас для книг
         {
             public string Title { get; set; }
             public string Author { get; set; }
@@ -258,20 +258,20 @@ namespace SuperTaskFromKutsenko2
             public string Status = "Free";
 
         }
-        public class User
+        public class User // Клас для пользователей
         {
             public string Name { get; set; }
             public int Id { get; set; }
             [XmlArray("Books")]
             [XmlArrayItem("Book")]
-            public List<Book> Books { get; set; } = new List<Book>();
+            public List<Book> Books { get; set; } = new List<Book>(); // Массив для книг которые в аренде
         }
         static void Main(string[] args)
         {
             Library library = new Library();
-            File.WriteAllText("log.txt",string.Empty);
+            File.WriteAllText("log.txt",string.Empty); // Перезапуск файла при начале программы для обновления логов
 
-            while (true)
+            while (true) // Меню
             {
                 Console.WriteLine("1. Book");
                 Console.WriteLine("2. User");
