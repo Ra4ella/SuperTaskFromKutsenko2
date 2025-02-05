@@ -1,0 +1,7 @@
+E:\Шаг КУЦЕНКО\С#\SuperTaskFromKutsenko2\SuperTaskFromKutsenko2\bin\Debug\SuperTaskFromKutsenko2.exe.config
+E:\Шаг КУЦЕНКО\С#\SuperTaskFromKutsenko2\SuperTaskFromKutsenko2\bin\Debug\SuperTaskFromKutsenko2.exe
+E:\Шаг КУЦЕНКО\С#\SuperTaskFromKutsenko2\SuperTaskFromKutsenko2\bin\Debug\SuperTaskFromKutsenko2.pdb
+E:\Шаг КУЦЕНКО\С#\SuperTaskFromKutsenko2\SuperTaskFromKutsenko2\obj\Debug\SuperTaskFromKutsenko2.csproj.AssemblyReference.cache
+E:\Шаг КУЦЕНКО\С#\SuperTaskFromKutsenko2\SuperTaskFromKutsenko2\obj\Debug\SuperTaskFromKutsenko2.csproj.CoreCompileInputs.cache
+E:\Шаг КУЦЕНКО\С#\SuperTaskFromKutsenko2\SuperTaskFromKutsenko2\obj\Debug\SuperTaskFromKutsenko2.exe
+E:\Шаг КУЦЕНКО\С#\SuperTaskFromKutsenko2\SuperTaskFromKutsenko2\obj\Debug\SuperTaskFromKutsenko2.pdb

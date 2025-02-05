@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Library xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <fileName>log.txt</fileName>
+  <Book>
+    <Status>Free</Status>
+    <Title>1984</Title>
+    <Author>George Orwell</Author>
+    <Genre>Dystopian</Genre>
+    <Year>1949</Year>
+    <Id>1</Id>
+  </Book>
+  <Book>
+    <Status>Free</Status>
+    <Title>To Kill a Mockingbird</Title>
+    <Author>Harper Lee</Author>
+    <Genre>Fiction</Genre>
+    <Year>1960</Year>
+    <Id>2</Id>
+  </Book>
+  <Book>
+    <Status>Free</Status>
+    <Title>Pride and Prejudice</Title>
+    <Author>Jane Austen</Author>
+    <Genre>Romance</Genre>
+    <Year>1813</Year>
+    <Id>3</Id>
+  </Book>
+</Library>
